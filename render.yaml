@@ -4,6 +4,7 @@ services:
     name: hng_task
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn configs.asgi:application -k uvicorn.workers.UvicornWorker"    envVars:
+    startCommand: "gunicorn configs.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
       - key: WEB_CONCURRENCY
         value: 4
